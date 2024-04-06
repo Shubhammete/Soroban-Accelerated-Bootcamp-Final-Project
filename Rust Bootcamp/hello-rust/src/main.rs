@@ -21,5 +21,74 @@ fn main() {
     let new_tuple:(i32,char,bool) = (33,'a',false);
 
     //array
-    let new_Arr : [i32,3] = [2,3,4];
+    let new_Arr : [i32;3] = [2,3,4];
+
+    fn add(a:i32, b:i32)-> i32{
+        return a+b
+    }
+
+    let result : i32 = add(2,3);
+    print!("The sum of {} and {} is {}\n",2,3,result);
+
+    // enum is used for defining a type that has a set of named values or variants
+   
+
+    enum Direction {
+        North,
+        South,
+        East,
+        West,
+    }
+    
+    fn movePlayer(dir:Direction) {
+        // Using the enum variants
+        let player_direction = dir;
+    
+        // Match expression to handle different enum variants
+        match player_direction {
+            Direction::North => println!("Player is facing North"),
+            Direction::South => println!("Player is facing South"),
+            Direction::East => println!("Player is facing East"),
+            Direction::West => println!("Player is facing West"),
+        }
+    }
+
+    movePlayer(Direction::North);
+
+
+    // struct
+
+    struct Person{
+        name: String,
+        age:u32,
+    }
+
+    let person : Person = Person{
+        name: String::from("Alice"),
+        age:30,
+    };
+
+    println!("Hi! I am {} and I am {} years old",person.name,person.age);
+
+    //trait is defines behaviour hat types can implement
+
+    trait Printable{
+        fn print(&self);
+    }
+
+    struct Book{
+        title:String,
+    }
+// implement trait on Book type 
+    impl Printable for Book{
+        fn print(&self){
+            println!("Book Title :{}",self.title);
+        }
+    }
+
+    let book = Book{
+        title:String::from("The Alchemist"),
+    };
+    book.print();
+
 }
