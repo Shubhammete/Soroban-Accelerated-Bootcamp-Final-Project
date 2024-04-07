@@ -1,1 +1,1 @@
-# Stellar-Workshop-Template
+# Simple-Token-Contract
